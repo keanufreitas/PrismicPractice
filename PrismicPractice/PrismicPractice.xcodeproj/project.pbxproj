@@ -13,9 +13,11 @@
 		4077471520D85A4300ADC47E /* PrismicPractice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4077471320D85A4300ADC47E /* PrismicPractice.xcdatamodeld */; };
 		4077471720D85A4500ADC47E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4077471620D85A4500ADC47E /* Assets.xcassets */; };
 		4077471A20D85A4500ADC47E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4077471820D85A4500ADC47E /* LaunchScreen.storyboard */; };
+		C629EEC0940E51A59EB4796C /* Pods_PrismicPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6558FD0CE2FF79952EE5E934 /* Pods_PrismicPractice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D367577ADC158B802C4515A /* Pods-PrismicPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrismicPractice.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice.release.xcconfig"; sourceTree = "<group>"; };
 		4077470920D85A4300ADC47E /* PrismicPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrismicPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4077470C20D85A4300ADC47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4077470E20D85A4300ADC47E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		4077471620D85A4500ADC47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4077471920D85A4500ADC47E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4077471B20D85A4500ADC47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6558FD0CE2FF79952EE5E934 /* Pods_PrismicPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrismicPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C40364828E8C33B3028006 /* Pods-PrismicPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrismicPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C629EEC0940E51A59EB4796C /* Pods_PrismicPractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				4077470B20D85A4300ADC47E /* PrismicPractice */,
 				4077470A20D85A4300ADC47E /* Products */,
+				942B893CB82EE1C640B33963 /* Pods */,
+				D00821BD1013D922E07E4530 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = PrismicPractice;
 			sourceTree = "<group>";
 		};
+		942B893CB82EE1C640B33963 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5C40364828E8C33B3028006 /* Pods-PrismicPractice.debug.xcconfig */,
+				3D367577ADC158B802C4515A /* Pods-PrismicPractice.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D00821BD1013D922E07E4530 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6558FD0CE2FF79952EE5E934 /* Pods_PrismicPractice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4077471E20D85A4500ADC47E /* Build configuration list for PBXNativeTarget "PrismicPractice" */;
 			buildPhases = (
+				7A2E062D6C80F8A7F1842F15 /* [CP] Check Pods Manifest.lock */,
 				4077470520D85A4300ADC47E /* Sources */,
 				4077470620D85A4300ADC47E /* Frameworks */,
 				4077470720D85A4300ADC47E /* Resources */,
+				7A0F711A337D630C73EF6734 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A0F711A337D630C73EF6734 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A2E062D6C80F8A7F1842F15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrismicPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4077470520D85A4300ADC47E /* Sources */ = {
@@ -282,15 +349,13 @@
 		};
 		4077471F20D85A4500ADC47E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5C40364828E8C33B3028006 /* Pods-PrismicPractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP8GT3R6RF;
 				INFOPLIST_FILE = PrismicPractice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keanuf.PrismicPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -300,15 +365,13 @@
 		};
 		4077472020D85A4500ADC47E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D367577ADC158B802C4515A /* Pods-PrismicPractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP8GT3R6RF;
 				INFOPLIST_FILE = PrismicPractice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keanuf.PrismicPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
