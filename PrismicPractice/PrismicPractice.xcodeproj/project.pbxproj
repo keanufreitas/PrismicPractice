@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40301DA220E6CCCD005FCD58 /* FullArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40301DA120E6CCCD005FCD58 /* FullArticle.swift */; };
 		4077470D20D85A4300ADC47E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077470C20D85A4300ADC47E /* AppDelegate.swift */; };
 		4077470F20D85A4300ADC47E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077470E20D85A4300ADC47E /* ViewController.swift */; };
 		4077471220D85A4300ADC47E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4077471020D85A4300ADC47E /* Main.storyboard */; };
 		4077471520D85A4300ADC47E /* PrismicPractice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4077471320D85A4300ADC47E /* PrismicPractice.xcdatamodeld */; };
 		4077471720D85A4500ADC47E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4077471620D85A4500ADC47E /* Assets.xcassets */; };
 		4077471A20D85A4500ADC47E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4077471820D85A4500ADC47E /* LaunchScreen.storyboard */; };
+		40B58BE220EB06C7005CEC8B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B58BE120EB06C7005CEC8B /* ArticleCollectionViewCell.swift */; };
 		C629EEC0940E51A59EB4796C /* Pods_PrismicPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6558FD0CE2FF79952EE5E934 /* Pods_PrismicPractice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D367577ADC158B802C4515A /* Pods-PrismicPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrismicPractice.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice.release.xcconfig"; sourceTree = "<group>"; };
+		40301DA120E6CCCD005FCD58 /* FullArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArticle.swift; sourceTree = "<group>"; };
 		4077470920D85A4300ADC47E /* PrismicPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrismicPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4077470C20D85A4300ADC47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4077470E20D85A4300ADC47E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		4077471620D85A4500ADC47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4077471920D85A4500ADC47E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4077471B20D85A4500ADC47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40B58BE120EB06C7005CEC8B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		6558FD0CE2FF79952EE5E934 /* Pods_PrismicPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrismicPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C40364828E8C33B3028006 /* Pods-PrismicPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrismicPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				4077470C20D85A4300ADC47E /* AppDelegate.swift */,
-				4077470E20D85A4300ADC47E /* ViewController.swift */,
+				40B58BE320EB06D3005CEC8B /* Article */,
 				4077471020D85A4300ADC47E /* Main.storyboard */,
 				4077471620D85A4500ADC47E /* Assets.xcassets */,
 				4077471820D85A4500ADC47E /* LaunchScreen.storyboard */,
@@ -72,6 +76,16 @@
 				4077471320D85A4300ADC47E /* PrismicPractice.xcdatamodeld */,
 			);
 			path = PrismicPractice;
+			sourceTree = "<group>";
+		};
+		40B58BE320EB06D3005CEC8B /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				40301DA120E6CCCD005FCD58 /* FullArticle.swift */,
+				4077470E20D85A4300ADC47E /* ViewController.swift */,
+				40B58BE120EB06C7005CEC8B /* ArticleCollectionViewCell.swift */,
+			);
+			path = Article;
 			sourceTree = "<group>";
 		};
 		942B893CB82EE1C640B33963 /* Pods */ = {
@@ -207,7 +221,9 @@
 			files = (
 				4077471520D85A4300ADC47E /* PrismicPractice.xcdatamodeld in Sources */,
 				4077470F20D85A4300ADC47E /* ViewController.swift in Sources */,
+				40B58BE220EB06C7005CEC8B /* ArticleCollectionViewCell.swift in Sources */,
 				4077470D20D85A4300ADC47E /* AppDelegate.swift in Sources */,
+				40301DA220E6CCCD005FCD58 /* FullArticle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +371,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP8GT3R6RF;
 				INFOPLIST_FILE = PrismicPractice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.keanuf.PrismicPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -371,7 +390,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP8GT3R6RF;
 				INFOPLIST_FILE = PrismicPractice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.keanuf.PrismicPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
