@@ -11,7 +11,8 @@ import Foundation
 
 let domainUrl = "https://wealthfit-staging.cdn.prismic.io/api/v2/documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
 
-let ref = "WzwwVCMAAJ5xtaG1"
+let ref = "W0O_dB4AAA5Aj2Yn"
+//"WzwwVCMAAJ5xtaG1"
 let articleQuery = "%5B%5Bat(document.type%2C+%22article%22)%5D%5D"
 let at = "MC5XenU3N3lNQUFNNWNzNTRI.77-9WyHvv73vv73vv70feGUe77-9eT_vv73vv73vv70YJmdN77-977-9Ou-_ve-_vV_vv73vv70277-977-9Eg"
 
@@ -74,6 +75,8 @@ class ViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingLbl: UILabel!
+    
     
     var articles = [FullArticle]()
     
@@ -179,6 +182,8 @@ extension ViewController: UICollectionViewDataSource {
         } else {
             count = articles.count
             activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+            loadingLbl.isHidden = true
         }
         return count
     }
@@ -187,20 +192,9 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCell", for: indexPath) as! ArticleCollectionViewCell
         
-//        let url = articles[indexPath.item].image
-//        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//
-//            if error != nil {
-//                print(error!)
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                self.image = UIImage(data: data!)!
-//                cell.imageView.image = self.image
-//            }
-//        }).resume()
-        
         cell.imageView.image = articles[indexPath.item].image
+        cell.titleLbl.text = articles[indexPath.item].title
+        cell.descLbl.text = articles[indexPath.item].miniDesc
         
         return cell
     }
