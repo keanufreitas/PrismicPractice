@@ -8,6 +8,11 @@
 
 import UIKit
 import Foundation
+import Siesta
+
+let baseURL = "https://wealthfit-staging.prismic.io/api/v2"
+//let domainUrl = "\(baseURL)documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
+let apiRef = Service(baseURL: baseURL)
 
 let domainUrl = "https://wealthfit-staging.cdn.prismic.io/api/v2/documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
 
@@ -41,6 +46,28 @@ struct Author: Codable {
 
 struct Topic: Codable {
     var uid: String?
+}
+
+public func track(_ message: String, file: String = #file, function: String = #function, line: Int = #line ) {
+    print("\(message) called from \(function) \(file):\(line)")
+}
+
+func stringify(json: Any, prettyPrinted: Bool = false) -> String {
+    var options: JSONSerialization.WritingOptions = []
+    if prettyPrinted {
+        options = JSONSerialization.WritingOptions.prettyPrinted
+    }
+    
+    do {
+        let data = try JSONSerialization.data(withJSONObject: json, options: options)
+        if let string = String(data: data, encoding: String.Encoding.utf8) {
+            return string
+        }
+    } catch {
+        print(error)
+    }
+    
+    return ""
 }
 
 class Article: Codable {
@@ -93,6 +120,11 @@ class ViewController: UIViewController {
         
         print(domainUrl)
         
+//        print(stringify(json: apiRef.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray, prettyPrinted: true))
+        for anItem in apiRef.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray as! [Dictionary<String, Any>] {
+            print(anItem["refs"])
+        }
+        
         if articles.isEmpty {
             activityIndicator.startAnimating()
         }
@@ -106,19 +138,19 @@ class ViewController: UIViewController {
             
             for item in items {
                 // Straight from Article.
-                print(item.id ?? "no id")
-                print(item.uid ?? "no uid")
-                print(item.type ?? "no type")
+//                print(item.id ?? "no id")
+//                print(item.uid ?? "no uid")
+//                print(item.type ?? "no type")
                 
                 // From Article and then Data.
-                print(item.data?.meta_title ?? "no title")
-                print(item.data?.meta_description ?? "no desc")
+//                print(item.data?.meta_title ?? "no title")
+//                print(item.data?.meta_description ?? "no desc")
                 
                 self.metaTitle = (item.data?.meta_title)!
                 self.metaDesc = (item.data?.meta_description)!
                 
                 // From Data into Image.
-                print(item.data?.article_featured_image?.url?.absoluteString ?? "no image url")
+//                print(item.data?.article_featured_image?.url?.absoluteString ?? "no image url")
                 
                 let url = item.data?.article_featured_image?.url
                 do {
@@ -129,12 +161,12 @@ class ViewController: UIViewController {
                 }
                 
                 // From Data into Author.
-                print(item.data?.author?.uid ?? "no author")
+//                print(item.data?.author?.uid ?? "no author")
                 
                 self.author = (item.data?.author?.uid)!
                 
                 // From Data into Topic.
-                print(item.data?.topic?.uid ?? "no topic")
+//                print(item.data?.topic?.uid ?? "no topic")
                 
                 self.topic = (item.data?.topic?.uid)!
                 
