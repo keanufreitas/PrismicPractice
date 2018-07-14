@@ -12,7 +12,7 @@ import Siesta
 
 let baseURL = "https://wealthfit-staging.prismic.io/api/v2"
 //let domainUrl = "\(baseURL)documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
-let apiRef = Service(baseURL: baseURL)
+let MyAPI = Service(baseURL: baseURL)
 
 let domainUrl = "https://wealthfit-staging.cdn.prismic.io/api/v2/documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
 
@@ -121,10 +121,13 @@ class ViewController: UIViewController {
         print(domainUrl)
         
 //        print(stringify(json: apiRef.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray, prettyPrinted: true))
-        for anItem in apiRef.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray as! [Dictionary<String, Any>] {
-            print(anItem["refs"])
-        }
         
+        
+        for anItem in MyAPI.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray as! [Dictionary<String, Any>] {
+            print(anItem["refs"]!)
+             // MyAPI.resource("").addObserver(self)
+        }
+
         if articles.isEmpty {
             activityIndicator.startAnimating()
         }
