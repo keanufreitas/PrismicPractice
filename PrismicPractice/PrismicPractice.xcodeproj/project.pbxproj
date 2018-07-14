@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		40301DA220E6CCCD005FCD58 /* FullArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40301DA120E6CCCD005FCD58 /* FullArticle.swift */; };
+		406F301220F979120043FBC0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301120F979120043FBC0 /* Article.swift */; };
+		406F301620F979300043FBC0 /* Refs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301520F979300043FBC0 /* Refs.swift */; };
+		406F301820F979620043FBC0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301720F979620043FBC0 /* Result.swift */; };
+		406F301A20F9796E0043FBC0 /* mData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301920F9796E0043FBC0 /* mData.swift */; };
+		406F301C20F9797A0043FBC0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301B20F9797A0043FBC0 /* Image.swift */; };
+		406F301E20F979830043FBC0 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301D20F979830043FBC0 /* Author.swift */; };
+		406F302020F9798F0043FBC0 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F301F20F9798F0043FBC0 /* Topic.swift */; };
 		4077470D20D85A4300ADC47E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077470C20D85A4300ADC47E /* AppDelegate.swift */; };
 		4077470F20D85A4300ADC47E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4077470E20D85A4300ADC47E /* ViewController.swift */; };
 		4077471220D85A4300ADC47E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4077471020D85A4300ADC47E /* Main.storyboard */; };
@@ -21,6 +28,13 @@
 /* Begin PBXFileReference section */
 		3D367577ADC158B802C4515A /* Pods-PrismicPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrismicPractice.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrismicPractice/Pods-PrismicPractice.release.xcconfig"; sourceTree = "<group>"; };
 		40301DA120E6CCCD005FCD58 /* FullArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArticle.swift; sourceTree = "<group>"; };
+		406F301120F979120043FBC0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		406F301520F979300043FBC0 /* Refs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refs.swift; sourceTree = "<group>"; };
+		406F301720F979620043FBC0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		406F301920F9796E0043FBC0 /* mData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mData.swift; sourceTree = "<group>"; };
+		406F301B20F9797A0043FBC0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		406F301D20F979830043FBC0 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		406F301F20F9798F0043FBC0 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		4077470920D85A4300ADC47E /* PrismicPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrismicPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4077470C20D85A4300ADC47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4077470E20D85A4300ADC47E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +60,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		406F301020F978FC0043FBC0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				406F301320F9791F0043FBC0 /* Ref Retrieval */,
+				406F301120F979120043FBC0 /* Article.swift */,
+				406F301720F979620043FBC0 /* Result.swift */,
+				406F301920F9796E0043FBC0 /* mData.swift */,
+				406F301B20F9797A0043FBC0 /* Image.swift */,
+				406F301D20F979830043FBC0 /* Author.swift */,
+				406F301F20F9798F0043FBC0 /* Topic.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		406F301320F9791F0043FBC0 /* Ref Retrieval */ = {
+			isa = PBXGroup;
+			children = (
+				406F301520F979300043FBC0 /* Refs.swift */,
+			);
+			path = "Ref Retrieval";
+			sourceTree = "<group>";
+		};
 		4077470020D85A4300ADC47E = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +103,7 @@
 		4077470B20D85A4300ADC47E /* PrismicPractice */ = {
 			isa = PBXGroup;
 			children = (
+				406F301020F978FC0043FBC0 /* Classes */,
 				4077470C20D85A4300ADC47E /* AppDelegate.swift */,
 				40B58BE320EB06D3005CEC8B /* Article */,
 				4077471020D85A4300ADC47E /* Main.storyboard */,
@@ -219,11 +256,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				406F301620F979300043FBC0 /* Refs.swift in Sources */,
+				406F302020F9798F0043FBC0 /* Topic.swift in Sources */,
 				4077471520D85A4300ADC47E /* PrismicPractice.xcdatamodeld in Sources */,
 				4077470F20D85A4300ADC47E /* ViewController.swift in Sources */,
+				406F301220F979120043FBC0 /* Article.swift in Sources */,
 				40B58BE220EB06C7005CEC8B /* ArticleCollectionViewCell.swift in Sources */,
 				4077470D20D85A4300ADC47E /* AppDelegate.swift in Sources */,
+				406F301820F979620043FBC0 /* Result.swift in Sources */,
+				406F301E20F979830043FBC0 /* Author.swift in Sources */,
 				40301DA220E6CCCD005FCD58 /* FullArticle.swift in Sources */,
+				406F301A20F9796E0043FBC0 /* mData.swift in Sources */,
+				406F301C20F9797A0043FBC0 /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

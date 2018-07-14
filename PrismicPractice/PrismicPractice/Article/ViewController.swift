@@ -10,94 +10,15 @@ import UIKit
 import Foundation
 import Siesta
 
-let baseURL = "https://wealthfit-staging.prismic.io/api/v2"
-//let domainUrl = "\(baseURL)documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
+let baseURL = "https://wealthfit-staging.cdn.prismic.io/api/v2"
+var globalDomainUrl = String()
 let MyAPI = Service(baseURL: baseURL)
 
-let domainUrl = "https://wealthfit-staging.cdn.prismic.io/api/v2/documents/search?ref=\(ref)&access_token=\(at)&q=\(articleQuery)#format=json"
-
-let ref = "W0O_dB4AAA5Aj2Yn"
-//"WzwwVCMAAJ5xtaG1"
-let articleQuery = "%5B%5Bat(document.type%2C+%22article%22)%5D%5D"
-let at = "MC5XenU3N3lNQUFNNWNzNTRI.77-9WyHvv73vv73vv70feGUe77-9eT_vv73vv73vv70YJmdN77-977-9Ou-_ve-_vV_vv73vv70277-977-9Eg"
-
-struct Result: Codable {
-    var id: String?
-    var uid: String?
-    var type: String?
-    var data: mData?
-}
-
-struct mData: Codable {
-    var meta_title: String?
-    var meta_description: String?
-    var article_featured_image: Image?
-    var author: Author?
-    var topic: Topic?
-}
-
-struct Image: Codable {
-    var url: URL?
-}
-
-struct Author: Codable {
-    var uid: String?
-}
-
-struct Topic: Codable {
-    var uid: String?
-}
-
-public func track(_ message: String, file: String = #file, function: String = #function, line: Int = #line ) {
-    print("\(message) called from \(function) \(file):\(line)")
-}
-
-func stringify(json: Any, prettyPrinted: Bool = false) -> String {
-    var options: JSONSerialization.WritingOptions = []
-    if prettyPrinted {
-        options = JSONSerialization.WritingOptions.prettyPrinted
-    }
-    
-    do {
-        let data = try JSONSerialization.data(withJSONObject: json, options: options)
-        if let string = String(data: data, encoding: String.Encoding.utf8) {
-            return string
-        }
-    } catch {
-        print(error)
-    }
-    
-    return ""
-}
-
-class Article: Codable {
-    
-    var page: Int?
-    var results: [Result]?
-    
-    enum CodingKeys: String, CodingKey {
-        case page
-        case results
-    }
-    
-    static func fetch(completionHandler: @escaping ([Result]) -> Void) {
-
-        let urlString = domainUrl
-        if let url = URL.init(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                //print(String.init(data: data!, encoding: .ascii) ?? "No data!")
-
-                if let newArticle = try? JSONDecoder().decode(Article.self, from: data!) {
-                    print(newArticle.page ?? "no page" + " <-------------")
-                    completionHandler(newArticle.results!)
-                }
-            })
-            task.resume()
-        }
-    }
-}
-
 class ViewController: UIViewController {
+    
+    var masterRef = String()
+    let articleQuery = "%5B%5Bat(document.type%2C+%22article%22)%5D%5D"
+    let at = "MC5XenU3N3lNQUFNNWNzNTRI.77-9WyHvv73vv73vv70feGUe77-9eT_vv73vv73vv70YJmdN77-977-9Ou-_ve-_vV_vv73vv70277-977-9Eg"
     
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -118,43 +39,42 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print(domainUrl)
-        
-//        print(stringify(json: apiRef.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray, prettyPrinted: true))
-        
-        
-        for anItem in MyAPI.resource("").withParam("q", "[at(document.type, `article`)]").jsonArray as! [Dictionary<String, Any>] {
-            print(anItem["refs"]!)
-             // MyAPI.resource("").addObserver(self)
-        }
-
+        print(globalDomainUrl)
         if articles.isEmpty {
             activityIndicator.startAnimating()
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        Refs.fetchRef { (refs) in
+            
+            for ref in refs {
+                
+                print(ref.id ?? "no id")
+                print(ref.ref ?? "no ref")
+                self.masterRef = ref.ref!
+            }
+            self.test()
+        }
+    }
+    
+    func test() {
+        
+        globalDomainUrl = "https://wealthfit-staging.cdn.prismic.io/api/v2/documents/search?ref=\(masterRef)&access_token=\(at)&q=\(articleQuery)#format=json"
+        
         // Decoder and JSONSerializable.
-        Article.fetch{ (items) in
+        Article.fetch { (items) in
             
             for item in items {
-                // Straight from Article.
-//                print(item.id ?? "no id")
-//                print(item.uid ?? "no uid")
-//                print(item.type ?? "no type")
-                
+
                 // From Article and then Data.
-//                print(item.data?.meta_title ?? "no title")
-//                print(item.data?.meta_description ?? "no desc")
-                
                 self.metaTitle = (item.data?.meta_title)!
                 self.metaDesc = (item.data?.meta_description)!
                 
                 // From Data into Image.
-//                print(item.data?.article_featured_image?.url?.absoluteString ?? "no image url")
-                
                 let url = item.data?.article_featured_image?.url
                 do {
                     let data = try Data(contentsOf: url!)
@@ -164,17 +84,10 @@ class ViewController: UIViewController {
                 }
                 
                 // From Data into Author.
-//                print(item.data?.author?.uid ?? "no author")
-                
                 self.author = (item.data?.author?.uid)!
                 
                 // From Data into Topic.
-//                print(item.data?.topic?.uid ?? "no topic")
-                
                 self.topic = (item.data?.topic?.uid)!
-                
-                // From Data into
-                
                 
                 self.articles.append(FullArticle(title: self.metaTitle, miniDesc: self.metaDesc, author: self.author, image: self.image, topic: self.topic))
             }
